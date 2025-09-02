@@ -1,0 +1,237 @@
+/* ==============================
+   :root - Variáveis CSS
+============================== */
+:root {
+  --primary-color: #020228;
+  --secondary-color: #ff00e5;
+  --tertiary-color: #b535f6;
+
+  --btn-gradient: linear-gradient(45deg, #9b34ef 0%, #490cb0 20%, transparent 50%);
+  --btn-link-bg: #fff;
+  --btn-link-color: #000;
+
+  --card-bg: linear-gradient(0deg, transparent, #3b1e63);
+  --divider-bg: linear-gradient(90deg, #5516ba, rgba(255, 0, 229, 0.5) 80%);
+  --nav-bg: rgba(0, 0, 0, 0.3);
+
+  --text-color: #fff;
+  --link-color: #9e86ff;
+
+  --form-bg: rgba(211, 211, 211, 0.06);
+  --form-field-bg: rgba(0, 0, 0, 0.2);
+  --form-field-border: 1px solid rgba(255, 255, 255, 0.7);
+  --form-field-placeholder: rgba(255, 255, 255, 0.7);
+  --form-field-error: rgb(255, 76, 76);
+}
+
+/* ==============================
+   Reset / Global
+============================== */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-family: "Raleway", sans-serif;
+  line-height: 1.6;
+}
+
+/* ==============================
+   Tipografia
+============================== */
+p, li {
+  font-family: "Quicksand", sans-serif;
+}
+
+.text--small {
+  font-size: clamp(0.75rem, 1vw, 1rem);
+  font-weight: 300;
+}
+
+/* ==============================
+   Botões
+============================== */
+.button {
+  padding: clamp(12px, 2vw, 16px) clamp(24px, 4vw, 40px);
+  border-radius: 500px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  background-color: var(--tertiary-color);
+  transition: background 0.5s, transform 0.3s, outline 0.3s;
+}
+
+.button.button--gradient {
+  background: var(--btn-gradient);
+  background-size: 200%;
+  outline: 2px solid transparent;
+}
+
+.button.button--gradient:hover {
+  background-position: 100%;
+  transform: scale(1.05);
+  outline-color: var(--secondary-color);
+}
+
+/* ==============================
+   Navbar
+============================== */
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: clamp(12px, 2vw, 16px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--nav-bg);
+  z-index: 100;
+}
+
+.menu__logo {
+  max-width: 160px;
+}
+
+.menu__logo-image {
+  width: 100%;
+}
+
+.menu__nav {
+  display: flex;
+  gap: clamp(16px, 2vw, 24px);
+  list-style: none;
+}
+
+.menu__item {
+  font-weight: 700;
+  font-size: clamp(0.7rem, 1vw, 0.75rem);
+  color: var(--text-color);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.menu__item--button {
+  padding: clamp(6px, 1vw, 8px) clamp(16px, 2vw, 26px);
+  transition: background 0.3s, color 0.3s;
+}
+
+.menu__item--button:hover {
+  background-color: var(--btn-link-bg);
+  color: var(--btn-link-color);
+}
+
+/* ==============================
+   Container
+============================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(16px, 2vw, 24px);
+  text-align: center;
+}
+
+/* ==============================
+   Footer
+============================== */
+.footer__link {
+  font-weight: bold;
+  color: var(--link-color);
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0 14px;
+  letter-spacing: 2px;
+  transition: color 0.3s;
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+}
+
+.footer__link:hover {
+  color: var(--text-color);
+}
+
+.footer__legal {
+  font-size: clamp(0.6rem, 0.8vw, 0.75rem);
+  margin: 16px 0;
+  color: var(--link-color);
+}
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(20px, 4vw, 40px);
+  margin-top: 80px;
+}
+
+/* ==============================
+   Seções
+============================== */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* ==============================
+   Scroll Customizado (Cross-browser)
+============================== */
+* {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--tertiary-color) var(--primary-color);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--tertiary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* ==============================
+   Media Queries
+============================== */
+@media screen and (max-width: 480px) {
+  section {
+    scroll-margin-top: 120px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 24px;
+  }
+
+  .menu__logo {
+    max-width: 100px;
+  }
+
+  .menu__item--button {
+    margin: 0;
+  }
+
+  .footer__link {
+    display: block;
+    margin-bottom: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding: clamp(12px, 2vw, 16px);
+  }
+}
